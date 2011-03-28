@@ -55,5 +55,5 @@ Jason Amster
 
 Thanks to Eric Kastner for Statsd<br />
 Thanks to Bryan Helmkamp for ops_middleware<br />
-Thanks to for his post: <a href="http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/">http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/</a><br />
+Thanks to John Nunemaker for his post: <a href="http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/">http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/</a><br />
 
