@@ -1,0 +1,59 @@
+# statsd-middleware
+
+## Info
+
+Simple middleware to log hits to StatsD and Graphite
+
+## Pre-reqs
+
+I needed this to also see which servers were serving, so I require <a href="https://github.com/efficiency20/ops_middleware">https://github.com/efficiency20/ops_middleware</a>
+
+## Usage/Install
+
+For a typical rails setup
+
+### 1. Set up statsd/graphite
+
+<a href="https://github.com/etsy/statsd">https://github.com/etsy/statsd</a>
+
+### 2. Install StatsD client
+
+I packaged jnunemaker's branch of reinh's statsd gem  (from https://github.com/reinh/statsd && https://github.com/jnunemaker/statsd/tree/mine). Just install that until reinh pulls jnunemaker's version and puts it out there
+
+	gem install jamster-statsd # 
+
+### 3. Install/Setup e20/ops_middleware 
+
+<a href="https://github.com/efficiency20/ops_middleware">https://github.com/efficiency20/ops_middleware</a>
+
+
+### 4. Copy statsd_middleware.rb to your /apps/middleware directory
+
+Uh, you can figure this out I'm sure
+
+### 5. Setup statsd client
+
+I put this above the Initializer (<code>Rails::Initializer.run do |config|</code>) in environment.rb.  This may not be the best spot, but I did have a reason for putting it there, but now I can't remember.  You can try it in an initializer also, I suppose.
+
+	require 'statsd'
+	$statsd = Statsd.new('graphite.YOURHOST.com', 8125)
+	$statsd.namespace="YOURHOST_#{ENV['RAILS_ENV']}"
+
+
+6. Add the middleware to your application
+
+
+/app/config/environments/#{Rails.env}.rb
+
+	config.middleware.insert 1, "StatsdMiddleware", $statsd
+
+
+
+## Creditos
+
+Jason Amster
+
+Thanks to Eric Kastner for Statsd
+Thanks to Bryan Helmkamp for ops_middleware
+Thanks to for his post: <a href="http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/">http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/</a>
+
