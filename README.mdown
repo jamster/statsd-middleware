@@ -40,7 +40,7 @@ I put this above the Initializer (<code>Rails::Initializer.run do |config|</code
 	$statsd.namespace="YOURHOST_#{ENV['RAILS_ENV']}"
 
 
-6. Add the middleware to your application
+### 6. Add the middleware to your application
 
 
 /app/config/environments/#{Rails.env}.rb
@@ -53,7 +53,7 @@ I put this above the Initializer (<code>Rails::Initializer.run do |config|</code
 
 Jason Amster
 
-Thanks to Eric Kastner for Statsd
-Thanks to Bryan Helmkamp for ops_middleware
-Thanks to for his post: <a href="http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/">http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/</a>
+Thanks to Eric Kastner for Statsd<br />
+Thanks to Bryan Helmkamp for ops_middleware<br />
+Thanks to for his post: <a href="http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/">http://railstips.org/blog/archives/2011/03/21/hi-my-name-is-john/</a><br />
 
